@@ -4,7 +4,7 @@ services:
   # MySQL database
   mysql:
     image: mysql:8.0.28
-    container_name: raneemtainer
+    container_name: raneemsql
     environment:
       MYSQL_DATABASE: 'super-app'
       MYSQL_ROOT_PASSWORD: 'password'
