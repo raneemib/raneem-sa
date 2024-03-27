@@ -17,8 +17,12 @@ jobs:
     - name: checkout code
       uses: actions/checkout@v4
       
-    - name: Build the Docker nodeimage
+    - name: Build the Docker phpimage
       run: docker build -f ./php/Dockerfile --tag superappnode:${{ github.run_number }}-${{github.sha}} .
+
+    - name: Build the Docker nodeimage
+      run: docker build -f ./node/Dockerfile --tag superappnode:${{ github.run_number }}-${{github.sha}} .
+
 
   #  - name: checkout codepush docker image to registry
   #  - run:  docker push ramenib/superappnode
