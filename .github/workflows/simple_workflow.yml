@@ -20,8 +20,7 @@ jobs:
         path: node 
 
     - name: Build the Docker nodeimage
-      run: docker build -f ./node/Dockerfile --tag superappnode:${{ github.run_number }}-${{github.sha}} . --no-cache
-
+      run: docker build -f ./node/Dockerfile --tag superappnode:${{ github.run_number }}-${{github.sha}} ./node
 
   #  - name: checkout codepush docker image to registry
   #  - run:  docker push ramenib/superappnode
