@@ -21,6 +21,8 @@ jobs:
       run: docker build -f ./php/Dockerfile --tag superappnode:${{ github.run_number }}-${{github.sha}} .
 
     - name: Build the Docker nodeimage
+      with:
+          path: node
       run: docker build -f ./node/Dockerfile --tag superappnode:${{ github.run_number }}-${{github.sha}} .
 
 
