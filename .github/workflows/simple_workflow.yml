@@ -28,5 +28,4 @@ jobs:
 
   
     - name: checkout codepush docker image to registry
-      run:  docker push ramenib/superappnode:${{ github.run_number }}-${{github.sha}} .
-
+      run:  docker push ramenib/superappnode:${{ github.run_number }}-${{github.sha}} ./node
