@@ -30,7 +30,7 @@ jobs:
         working-directory: ./node
         with:
           context: .
-          file: ./Dockerfile
+          file: ./node
           push: true
           tags: |
             repo:${{ github.sha }}
