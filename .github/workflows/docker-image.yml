@@ -22,7 +22,7 @@ jobs:
 
 
     - name: Login to Docker Hub
-      run:  docker login -u ${{  secrets.DOCKERUSER  }} -P ${{  secrets.DOCKERPASS  }}
+      run:  docker login -u ${{  secrets.DOCKERUSER  }} -p ${{  secrets.DOCKERPASS  }}
 
     - name: checkout codepush docker image to registry
       run:  docker push ramenib/superappphp:${{ github.run_number }}-${{github.sha}} .
