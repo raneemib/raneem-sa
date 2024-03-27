@@ -3,10 +3,10 @@ name: ci
 on:
   workflow_dispatch:
   
- # push:
- #   branches: [ "main" ]
- # pull_request:
- #   branches: [ "main" ]
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
   docker:
@@ -27,6 +27,11 @@ jobs:
       -
         name: Build and push
         uses: docker/build-push-action@v5
+        working-directory: node/
         with:
+          context: .
+          file: ./Dockerfile
           push: true
-          tags: user/app:latest
+          tags: |
+            repo:${{ github.sha }}
+            repo:latest
