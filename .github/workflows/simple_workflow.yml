@@ -16,11 +16,11 @@ jobs:
     steps:
     - name: checkout code
       uses: actions/checkout@v4
-      #with:
-        #path: node 
+      with:
+        path: node 
 
     - name: Build the Docker nodeimage
-      run: docker build -f ./node/Dockerfile --tag superappnode:${{ github.run_number }}-${{github.sha}} .
+      run: docker build -f ./node/Dockerfile --tag superappnode:${{ github.run_number }}-${{github.sha}} . --no-cache
 
 
   #  - name: checkout codepush docker image to registry
