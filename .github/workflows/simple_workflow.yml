@@ -20,7 +20,7 @@ jobs:
         path: node 
 
     - name: Build the Docker nodeimage
-      run: docker build -f Dockerfile --tag superappnode:${{ github.run_number }}-${{github.sha}} .
+      run: docker build -f ./Dockerfile --tag superappnode:${{ github.run_number }}-${{github.sha}} .
 
 
   #  - name: checkout codepush docker image to registry
