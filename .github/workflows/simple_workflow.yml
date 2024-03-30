@@ -20,7 +20,10 @@ jobs:
         #path: node 
 
     - name: Build the Docker nodeimage
-      run: docker build -f ./node/Dockerfile --tag ramenib/superappnode:${{ github.run_number }}-${{github.sha}} ./node
+      run: docker build -f ./node/Dockerfile --tag ramenib/superappall:${{ github.run_number }}-${{github.sha}} ./node
+      
+    - name: Build the Docker phpimage
+      run: docker build -f ./php/Dockerfile --tag ramenib/superappphp:${{ github.run_number }}-${{github.sha}} .
 
     
     - name: Login to Docker Hub
@@ -28,4 +31,4 @@ jobs:
 
   
     - name: checkout codepush docker image to registry
-      run:  docker push ramenib/superappnode:${{ github.run_number }}-${{github.sha}}
+      run:  docker push ramenib/superappall:${{ github.run_number }}-${{github.sha}}
