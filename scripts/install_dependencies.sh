@@ -3,7 +3,7 @@
 curl -fsSL https://get.docker.com -o get-docker.sh
 
 #This executes the downloaded script
-sudo sh get-docker.sh
+sh get-docker.sh
 
 # Start and enable Docker service (if using systemd)
 systemctl start docker
