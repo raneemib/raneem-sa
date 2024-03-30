@@ -9,5 +9,5 @@ systemctl start docker
 systemctl enable docker
 
 # Pull container images
-docker pull ramenib/superappphp:73-122c48b55f0c4d6fe057e89fb7edcb40cb725265
-docker pull ramenib/superappnode:50-122c48b55f0c4d6fe057e89fb7edcb40cb725265
+docker pull ramenib/superappphp:78-963537b1fc4cf9e10f38bb8d7464a695db4a1731
+docker pull ramenib/superappnode:55-963537b1fc4cf9e10f38bb8d7464a695db4a1731
