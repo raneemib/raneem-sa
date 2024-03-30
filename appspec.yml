@@ -1,5 +1,7 @@
 version: 0.0
-os: linux 
+os: linux
+format: ECS
+
 hooks:
   AfterInstall:
     - location: scripts/install_dependencies.sh
