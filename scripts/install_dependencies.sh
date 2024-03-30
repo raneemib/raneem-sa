@@ -1,10 +1,9 @@
 #!/bin/bash
+#This downloads the Docker installation script
+curl -fsSL https://get.docker.com -o get-docker.sh
 
-# Update package lists
-apt update
-
-# Install Docker and optionally docker-compose
-apt install docker docker-compose -y  
+#This executes the downloaded script
+yum install docker -y
 
 # Start and enable Docker service (if using systemd)
 systemctl start docker
