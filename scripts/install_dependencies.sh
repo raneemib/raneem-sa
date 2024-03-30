@@ -3,7 +3,7 @@
 # Update package lists
 apt update
 
-apt install docker docker-compose -y  
+apt install docker -y  
 
 systemctl start docker
 systemctl enable docker
