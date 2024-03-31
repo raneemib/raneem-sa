@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  # MySQL database
+   #MySQL database
   mysql:
     image: mysql:8.0.28
     container_name: raneemsql
@@ -15,7 +15,7 @@ services:
 
   # Node.js application
   node-app:
-    image: ramenib/superappnode:59-b53eec8699bb273bf2ab6e7d4d825dc5330a2d31
+    image: ramenib/sanode:1.0
     container_name: raneemnode
     depends_on:
       - mysql
@@ -29,7 +29,7 @@ services:
 
   # PHP application
   php-app:
-    image: ramenib/superappphp:80-b68dc67ea87a061ec8e4b6ae9c435cd1af8d079c
+    image: ramenib/saphp:1.0
     container_name: raneemphp
     depends_on:
       - mysql
