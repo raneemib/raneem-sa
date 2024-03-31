@@ -1,9 +1,9 @@
 #!/bin/bash
 
-curl -fsSL https://get.docker.com/ | sh
+#!/bin/bash
 
 # Install Docker and Docker Compose
-sudo yum install docker docker-compose -y
+sudo apt install docker docker-compose -y
 
 # Start and enable Docker service
 sudo systemctl start docker
