@@ -1,6 +1,6 @@
 #!/bin/bash
 
-curl -fsSL https://get.docker.com/ | sh
+curl -fsSL https://get.docker.com -o get-docker.sh
 
 sudo yum install docker docker-compose -y
 
