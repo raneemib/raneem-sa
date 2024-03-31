@@ -1,13 +1,45 @@
-version: '3.8'  # Specify the Docker Compose version
+version: '3.8'
 
 services:
-  - php-app:
-    # Image to use for the service
-    image: ramenib/superappphp:80-b68dc67ea87a061ec8e4b6ae9c435cd1af8d079c
+  # MySQL database
+  mysql:
+    image: mysql:8.0.28
+    container_name: raneemsql
+    environment:
+      MYSQL_DATABASE: 'super-app'
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
 
-  - node-app:
+  # Node.js application
+  node-app:
     image: ramenib/superappnode:59-b53eec8699bb273bf2ab6e7d4d825dc5330a2d31
+    container_name: raneemnode
+    depends_on:
+      - mysql
+    ports:
+      - "3000:3000"
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_DATABASE: 'super-app'
+      MYSQL_USER: 'root'
+      MYSQL_PASSWORD: 'password'
 
-ports:
-  # Define exposed ports for your services
-  - "80:80"  # Maps container port 80 (PHP) to host port 80
+  # PHP application
+  php-app:
+    image: ramenib/superappphp:80-b68dc67ea87a061ec8e4b6ae9c435cd1af8d079c
+    container_name: raneemphp
+    depends_on:
+      - mysql
+    ports:
+      - "80:80"
+    environment:
+      MYSQL_HOST: mysql 
+      MYSQL_DATABASE: 'super-app'
+      MYSQL_USER: 'root' 
+      MYSQL_PASSWORD: 'password'
+
+volumes:
+  mysql-data:  # Volume for persistent MySQL data
