@@ -1,12 +1,20 @@
 #!/bin/bash
 
-# Install Docker and Docker Compose
-sudo apt install docker docker-compose -y
+# Install Docker
+echo "Installing Docker..."
+if ! sudo yum list installed docker >/dev/null 2>&1; then
+  sudo yum install -y docker
+else
+  echo "Docker already installed."
+fi
 
-# Start and enable Docker service
-sudo systemctl start docker
-sudo systemctl enable docker
+# Install Docker Compose
+echo "Installing Docker Compose..."
+if [[ ! -f /usr/local/bin/docker-compose ]]; then
+  curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+  sudo chmod +x /usr/local/bin/docker-compose
+else
+  echo "Docker Compose already installed."
+fi
 
-# Pull container images
-#docker pull ramenib/superappphp:80-b68dc67ea87a061ec8e4b6ae9c435cd1af8d079c
-#docker pull ramenib/superappnode:59-b53eec8699bb273bf2ab6e7d4d825dc5330a2d31
+echo "Installation complete."
