@@ -1,5 +1,11 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-#-itd launches a container in detached mode (-d) 
-docker run -itd --name superappphp -p 80:80 ramenib/superappphp:80-b68dc67ea87a061ec8e4b6ae9c435cd1af8d079c
-docker run -itd --name superappnode -p 3000:3000 ramenib/superappnode:59-b53eec8699bb273bf2ab6e7d4d825dc5330a2d31
+# Pull Docker images (if not already cached)
+echo "Pulling Docker images..."
+docker-compose pull || true  # Suppress pull errors (images might already be present)
+
+# Start containers in detached mode
+echo "Starting containers..."
+docker-compose up -d || (echo "Error starting containers. See logs for details." && exit 1)
+
+echo "Server started successfully."
