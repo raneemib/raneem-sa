@@ -1,6 +1,9 @@
 version: 0.0
 os: linux
 format: ECS
+files:
+  - source: php/index.php
+    destination: /var/www/php/
 
 hooks:
   AfterInstall:
