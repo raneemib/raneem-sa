@@ -18,3 +18,7 @@ else
 fi
 
 echo "Installation complete."
+
+# Instruct Docker Compose to use the non-standard file named deploy-compose.yml
+echo "Setting Docker Compose file path..."
+export COMPOSE_FILE=deploy-compose.yml
