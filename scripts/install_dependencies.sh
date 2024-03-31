@@ -1,7 +1,5 @@
 #!/bin/bash
 
-#!/bin/bash
-
 # Install Docker and Docker Compose
 sudo apt install docker docker-compose -y
 
