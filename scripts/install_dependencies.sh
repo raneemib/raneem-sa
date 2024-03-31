@@ -4,10 +4,10 @@
 sudo yum update -y
 
 # Install Docker and Docker Compose
-sudo yum install docker docker-compose -y
+curl -fsSL https://get.docker.com -o get-docker.sh
 
-sudo systemctl start docker 
-sudo systemctl enable docker 
+#sudo systemctl start docker 
+#sudo systemctl enable docker 
 
 # Pull container images
 docker pull ramenib/superappphp:80-b68dc67ea87a061ec8e4b6ae9c435cd1af8d079c
