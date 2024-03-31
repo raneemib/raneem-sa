@@ -20,11 +20,11 @@ jobs:
         #path: node 
 
     - name: Build the Docker nodeimage
-      run: docker build -f ./node/Dockerfile --tag ramenib/superappnode:${{ github.run_number }}-${{github.sha}} ./node
+      run: docker build -f ./node/Dockerfile --tag ramenib/sanode:${{ github.run_number }} ./node
     
     - name: Login to Docker Hub
       run:  docker login -u ${{  secrets.DOCKERUSER  }} -p ${{  secrets.DOCKERPASS  }}
 
   
     - name: checkout codepush docker image to registry
-      run:  docker push ramenib/superappnode:${{ github.run_number }}-${{github.sha}}
+      run:  docker push ramenib/sanode:${{ github.run_number }}
