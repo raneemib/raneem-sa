@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# Update package lists
-sudo yum update -y
+curl -fsSL https://get.docker.com/ | sh
 
 # Install Docker and Docker Compose
 sudo yum install docker docker-compose -y
