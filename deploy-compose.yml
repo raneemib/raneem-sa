@@ -1,13 +1,12 @@
 version: '3.8'  # Specify the Docker Compose version
 
 services:
-  # Define your services here (replace with your actual service names)
   - php-app:
     # Image to use for the service
     image: ramenib/superappphp:80-b68dc67ea87a061ec8e4b6ae9c435cd1af8d079c
 
   - node-app:
-    image: your_node_image:latest  
+    image: ramenib/superappnode:59-b53eec8699bb273bf2ab6e7d4d825dc5330a2d31
 
 ports:
   # Define exposed ports for your services
