@@ -2,7 +2,7 @@
 
 curl -fsSL https://get.docker.com/ | sh
 
-sudo yum install docker -y
+sudo yum install docker docker-compose -y
 
 sudo systemctl start docker
 sudo systemctl enable docker
